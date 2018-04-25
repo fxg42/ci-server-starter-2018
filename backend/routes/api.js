@@ -10,14 +10,14 @@ router.get('/projects', (req, res, next) => {
 router.get('/projects/:id', (req, res, next) => {
   const found = findById(req.params.id)
   if (found) {
-    res.json(found)
+    res.status(200).json(found).send()
   } else {
     res.sendStatus(404)
   }
 })
 
 router.post('/projects', (req, res, next) => {
-  res.json(register(req.body))
+  res.status(201).json(register(req.body)).send()
 })
 
 router.delete('/projects/:id', (req, res, next) => {
@@ -26,13 +26,13 @@ router.delete('/projects/:id', (req, res, next) => {
 })
 
 router.put('/projects/:id', (req, res, next) => {
-  res.json(update(req.params.id, req.body))
+  res.status(200).json(update(req.params.id, req.body)).send()
 })
 
 router.post('/projects/:id/builds', (req, res, next) => {
   const built = build(req.params.id)
   if (built) {
-    res.json(built)
+    res.status(201).json(built).send()
   } else {
     res.sendStatus(500)
   }

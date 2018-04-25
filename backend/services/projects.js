@@ -58,12 +58,12 @@ export const unregister = (removeId) => {
 }
 
 export const update = (updateId, project) => {
-  if (updateId === project.id) {
-    const excluding = memoryDatabase.filter(p => p.id !== updateId)
-    const prev = memoryDatabase.find(p => p.id === updateId)
-    if (prev) {
-      memoryDatabase = [ ...excluding, { ...prev, projectName: project.projectName } ]
-    }
+  const excluding = memoryDatabase.filter(p => p.id !== updateId)
+  const prev = memoryDatabase.find(p => p.id === updateId)
+  if (prev) {
+    const updated = { ...prev, projectName: project.projectName, tech: project.tech }
+    memoryDatabase = [ ...excluding, updated ]
+    return updated
   }
 }
 
