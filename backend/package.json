@@ -17,7 +17,7 @@
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
     "moment": "^2.22.1",
-    "morgan": "~1.9.0",
+    "morgan": "~1.9.1",
     "project-name-generator": "^2.1.4",
     "uuid-v4": "^0.1.0"
   }
